@@ -2,15 +2,14 @@
 
 
 //----------------------fonts---------------------
-$fonts: 'GothamPro', sans-serif
-// $fw: 'Font Awesome 5 Brands', sans-serif
+$fonts: 'Lora', serif
+$title: 'Montserrat', sans-serif
 //---------------------end-fonts---------------------
 
 //----------------------color---------------------
-$accent: #000
+$accent: #4c07e5
 $text: #000
 $btn: #666
-$title: #333
 
 //---------------------end-color---------------------
 
@@ -19,9 +18,8 @@ body
 	position: relative
 	min-width: 320px
 	font-family: $fonts
-	font-size: 14px
+	font-size: 16px
 	color: $text
-	line-height: 1.4
 	font-weight: 400
 
 ::selection
@@ -41,6 +39,22 @@ h1, h2, h3, h4, h5, h6
 	line-height: 1.4
 	margin: 0
 	padding: 0
+	font-family: $title
+
+h2
+	font-size: 36px
+	text-transform: uppercase
+
+
+	b
+		color: $accent
+
+	span
+		font-weight: 400
+
+p
+	font-size: 16px
+	line-height: 1.9
 
 ul
 	margin: 0
@@ -53,13 +67,14 @@ i
 	color: #fff
 
 input, textarea
-	border: #000 1px solid
+	border: #fff 1px solid
 	border-radius: 0
 	outline: none
 	box-shadow: none
 	-webkit-appearance: none
 	width: 100%
 	height: 50px
+	font-size: 16px
 	
 	&:focus:required:invalid
 		border-color: red
@@ -74,7 +89,7 @@ input, textarea
 		-webkit-appearance: none
 
 	&::placeholder
-		color: #000
+		color: #a5a5a5
 
 input
 	height: 50px
@@ -97,11 +112,18 @@ input:-moz-placeholder /* Firefox 18- */
   line-height: 50px
 
 textarea
+	resize: none
+	width: 100%
+	height: 120px
+	margin-bottom: 20px
+	padding: 15px
+
 	&::placeholder
 		line-height: 1.4
 
 b, strong
 	font-weight: 700
+
 
 p
 	margin: 0
@@ -123,4 +145,3 @@ button:hover,
 @import "_base/btn"
 @import "_base/form"
 @import "_base/modal"
-@import "_base/hamburger"
