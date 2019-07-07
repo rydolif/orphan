@@ -39,7 +39,7 @@
 	top: 0
 	right: 0
 	left: 0
-	padding: 30px 0
+	padding: 20px 0
 	transition: all .3s
 	z-index: 1001
 
@@ -132,6 +132,7 @@
 	transition: all .6s
 	background: rgba(#fff, .9)
 	text-align: center
+	padding-top: 80px
 
 	ul
 		display: flex
@@ -149,7 +150,6 @@
 		font-size: 24px
 		color: $text
 
-
 	&--active
 		top: 0
 
@@ -159,7 +159,37 @@
 
 
 .hero
+	position: relative
 	
+	&__more
+		position: absolute
+		bottom: 60px
+		left: 23%
+		display: flex
+		align-items: center
+		transform: rotate(-90deg)
+		width: auto
+		transition: all .6s
+		color: $text
+
+		&::after
+			content: ''
+			display: block
+			width: 65px
+			height: 1px
+			background: $text
+			margin-left: 15px
+
+		&:hover,
+		&:focus
+			bottom: 80px
+
+		a
+			color: $text
+
+			&:hover,
+			&:focus
+				color: $text
 
 	p
 		font-family: $title
@@ -172,18 +202,21 @@
 	span
 		color: #ff1e3c
 
-	a
-		@extend .link
-		margin-right: 40px
+	&__soc
 
-		&:last-child
-			margin-right: 0
+		a
+			@extend .link
+			margin-right: 40px
+
+			&:last-child
+				margin-right: 0
 
 	&__bg
 		position: absolute
 		z-index: -1
 		right: -150px
 		top: 0
+		height: 100%
 
 	&__container
 		position: relative
@@ -242,48 +275,60 @@
 		align-items: center
 
 		&--two
-			&::before
-				content: url(../img/mision--before.jpg)
-				z-index: -1
-				position: absolute
+			.help__img--two
+				top: auto
+				left: auto
 				right: 0
 				bottom: 0
 
-
 	&__img
 		position: relative
-		z-index: 1
+		width: 37%
+
+		img
+			width: 100%
 
 		&--one
-			&::before
-				content: url(../img/mision--one-before.jpg)
-				z-index: -1
-				position: absolute
-				left: -205px
+			.help__img
 				top: 0
+				right: 100%
+				z-index: -1
 
 		&--two
-			&::before
-				content: url(../img/mision--two-before.jpg)
-				z-index: -1
-				position: absolute
-				right: -410px
+			.help__img
+				bottom: auto
 				top: 0
+				left: 100%
+				z-index: -1
 
 
 .history
 
+	h2
+		white-space: nowrap
+		margin-left: 20px
+
 	h3
 		font-size: 24px	
 		margin-bottom: 25px
+
+	&__btn
+		width: 100%
+		display: flex
+		justify-content: flex-end
 
 	&__header
 		display: flex
 		justify-content: space-between
 		margin-bottom: 50px
 
+		p
+			br
+				display: none
+
 	&__slider
 		overflow: visible
+		margin-bottom: 80px
 
 		&_slide
 			overflow: hidden
@@ -307,7 +352,11 @@
 				.history__slider_content
 					bottom: 0
 
+			img
+				width: 100%
+
 		&_content
+			width: 100%
 			position: absolute
 			bottom: -100%
 			transition: all .6s
@@ -434,6 +483,7 @@
 		position: relative
 		display: flex
 		align-items: flex-end !important
+		height: 24px
 	
 	.swiper-pagination-bullet
 		width: auto
@@ -520,6 +570,7 @@
 			background: #fff
 			transition: all .6s
 			padding-top: 40px
+			width: 100%
 
 			h3
 				position: relative
@@ -541,9 +592,15 @@
 					content: ''
 					display: block
 					margin-left: 15px
-					width: 65px
+					width: 35px
 					height: 1px
 					background: $text
+					transition: all .3s
+
+				&:hover, 
+				&:focus
+					&::after
+						width: 65px
 
 
 .realized
@@ -619,12 +676,16 @@
 			background: #fff
 			transition: all .6s
 			padding-top: 40px
+			width: 100%
 
 			h3
 				position: relative
 				color: $text
 				left: auto
 				bottom: auto
+
+			p
+				margin-bottom: 5px
 
 			a
 				display: flex
@@ -640,6 +701,9 @@
 					background: $text
 					margin-left: 10px
 
+				&:hover, 
+				&:focus
+					text-decoration: underline
 	&__prev,
 	&__next
 		position: relative
@@ -746,9 +810,11 @@
 
 
 .team
-	padding-top: 120px
-	padding-bottom: 215px
-	
+	.container
+		overflow: hidden
+		padding-top: 120px
+		padding-bottom: 215px
+
 	h2
 		margin-bottom: 110px
 
@@ -793,10 +859,13 @@
 				margin-bottom: 20px
 				font-size: 24px
 
+			p
+				br
+					display: none
+
 
 .help
 	text-align: right
-	overflow: visible
 
 	p
 		font-family: $title
@@ -816,6 +885,7 @@
 		width: 205px
 		height: 205px
 		perspective: 80px
+		z-index: -1
 
 		img
 			position: absolute
@@ -840,7 +910,7 @@
 			top: 205px
 
 			.help__active
-				animation-delay: 13s
+				animation-delay: 10s
 				animation: active 18s linear infinite
 
 		&--three
@@ -848,7 +918,7 @@
 			bottom: 0
 
 			.help__active
-				animation-delay: 10s
+				animation-delay: 7s
 				animation: active 16s linear infinite
 
 		&--four
@@ -856,7 +926,7 @@
 			bottom: 0
 
 			.help__active
-				animation-delay: 8s
+				animation-delay: 5s
 				animation: active 14s linear infinite
 				
 
@@ -946,6 +1016,9 @@
 
 	a
 		color: #fff
+		&:hover, 
+		&:focus
+			text-decoration: underline
 
 	ul
 		display: flex
@@ -999,6 +1072,7 @@
 		&__container
 			display: flex
 			justify-content: space-between
+			align-items: center
 
 		&__text
 			width: 42%
@@ -1009,6 +1083,7 @@
 			img
 				width: 100%
 				height: auto
+
 
 	&--mision
 		padding-top: 90px
@@ -1029,12 +1104,12 @@
 		p
 			font-size: 18px
 
+
 	&--form
 		padding-top: 75px
 		padding-bottom: 110px
 		background: #f2f2f2
 		
-
 		h3
 			font-weight: 400
 			text-transform: uppercase
@@ -1091,7 +1166,7 @@
 
 			p
 				position: absolute
-				right: 70%
+				right: 50%
 				top: 0
 				color: #a5a5a5
 				white-space: nowrap

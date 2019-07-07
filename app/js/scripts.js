@@ -6144,6 +6144,19 @@ var youtube = $('.youtube');
       nextEl: '.history__next',
       prevEl: '.history__prev',
     },
+    breakpoints: {
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 15
+      },
+      480: {
+        slidesPerView: 2,
+        spaceBetween: 15
+      },
+    },
+    autoplay: {
+      delay: 5000,
+    }
   });
 
   var swiper = new Swiper('.sos__slider', {
@@ -6160,6 +6173,9 @@ var youtube = $('.youtube');
         return '<span class="' + className + '">0' + (index + 1) + '</span>';
       },
     },
+    autoplay: {
+      delay: 5000,
+    }
   });
 
   var swiper = new Swiper('.realized__slider', {
@@ -6171,6 +6187,19 @@ var youtube = $('.youtube');
       nextEl: '.realized__next',
       prevEl: '.realized__prev',
     },
+    breakpoints: {
+      992: {
+        slidesPerView: 2,
+        spaceBetween: 15
+      },
+      767: {
+        slidesPerView: 1,
+        spaceBetween: 15
+      },
+    },
+    autoplay: {
+      delay: 5000,
+    }
   });
 
   var swiper = new Swiper('.team__slider', {
@@ -6182,6 +6211,19 @@ var youtube = $('.youtube');
       nextEl: '.team__next',
       prevEl: '.team__prev',
     },
+    breakpoints: {
+      992: {
+        slidesPerView: 2,
+        spaceBetween: 15
+      },
+      480: {
+        slidesPerView: 1,
+        spaceBetween: 15
+      },
+    },
+    autoplay: {
+      delay: 5000,
+    }
   });
 
 //------------------------------гамбургер-----------------------------
@@ -6203,14 +6245,19 @@ var youtube = $('.youtube');
           $('.header').removeClass('header--active');
       }
   });
+  if($(this).scrollTop()>10){
+      $('.header').addClass('header--active');
+  }
 
-//-------------------------скорость якоря---------------------------------------
-  $(".header__list").on("click","a", function (event) {
-      event.preventDefault();
-      var id  = $(this).attr('href'),
-          top = $(id).offset().top;
-      $('body,html').animate({scrollTop: top - 60}, 'slow', 'swing');
-  });
+  //-------------------------скорость якоря---------------------------------------
+    $(".more").on("click","a", function (event) {
+        event.preventDefault();
+        var id  = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({scrollTop: top - 60}, 'slow', 'swing');
 
-  
+        $('.hamburger').removeClass('hamburger--active');
+        $('.nav').removeClass('nav--active');
+    });
+
 });
